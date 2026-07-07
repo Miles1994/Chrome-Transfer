@@ -1,5 +1,5 @@
 // Service Worker
-importScripts('lib/storage.js', 'lib/api.js');
+importScripts('lib/utils.js', 'lib/storage.js', 'lib/api.js');
 
 // 监听来自Content Script的消息
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
