@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Translator 高级设置</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>AI Translator 高级设置</h1>
+    
+    <div class="card">
+      <h2>模型配置</h2>
+      
+      <div class="form-group">
+        <label for="modelType">模型类型</label>
+        <select id="modelType">
+          <option value="openai">OpenAI</option>
+          <option value="anthropic">Anthropic</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="apiEndpoint">API 地址</label>
+        <input type="url" id="apiEndpoint" placeholder="https://api.openai.com/v1/chat/completions">
+      </div>
+      
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <div class="input-with-button">
+          <input type="password" id="apiKey" placeholder="sk-xxx">
+          <button class="toggle-visibility" id="toggleApiKey">显示</button>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="model">模型名称</label>
+        <input type="text" id="model" placeholder="gpt-3.5-turbo">
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>高级设置</h2>
+      
+      <div class="form-group">
+        <label for="timeout">超时时间（毫秒）</label>
+        <input type="number" id="timeout" value="10000" min="1000" max="60000">
+      </div>
+      
+      <div class="form-group">
+        <label for="maxRetries">最大重试次数</label>
+        <input type="number" id="maxRetries" value="3" min="0" max="10">
+      </div>
+      
+      <div class="form-group">
+        <label for="sourceLanguage">源语言</label>
+        <select id="sourceLanguage">
+          <option value="auto">自动检测</option>
+          <option value="en">英语</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="targetLanguage">目标语言</label>
+        <select id="targetLanguage">
+          <option value="zh-CN">中文（简体）</option>
+          <option value="en">英语</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2>测试与工具</h2>
+      
+      <div class="button-group">
+        <button class="btn btn-primary" id="saveBtn">保存配置</button>
+        <button class="btn btn-secondary" id="testBtn">完整测试</button>
+      </div>
+      
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+  
+  <script src="lib/storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
