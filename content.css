@@ -1,0 +1,91 @@
+/* 翻译触发图标 */
+.translator-trigger-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-color: #1890ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.translator-trigger-icon:hover {
+  transform: scale(1.1);
+}
+
+.translator-trigger-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: white;
+}
+
+/* 翻译结果浮动窗口 */
+.translator-result-window {
+  position: absolute;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 12px;
+  max-width: 300px;
+  min-width: 150px;
+  z-index: 10001;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.translator-result-window .close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  font-size: 12px;
+}
+
+.translator-result-window .close-btn:hover {
+  color: #333;
+}
+
+.translator-result-window .translation-text {
+  word-wrap: break-word;
+}
+
+/* 加载状态 */
+.translator-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.translator-loading .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #1890ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 错误状态 */
+.translator-error {
+  color: #ff4d4f;
+  text-align: center;
+  padding: 12px;
+}
