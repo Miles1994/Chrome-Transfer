@@ -195,6 +195,11 @@
     spinner.className = 'spinner';
     loadingDiv.appendChild(spinner);
 
+    const loadingText = document.createElement('div');
+    loadingText.className = 'loading-text';
+    loadingText.textContent = '翻译中...';
+    loadingDiv.appendChild(loadingText);
+
     window.appendChild(loadingDiv);
   }
 
@@ -202,10 +207,15 @@
   function showResult(translation) {
     const window = createResultWindow();
 
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'translation-content';
+
     const textDiv = document.createElement('div');
     textDiv.className = 'translation-text';
     textDiv.textContent = translation; // 使用 textContent 防止 XSS
-    window.appendChild(textDiv);
+    contentDiv.appendChild(textDiv);
+
+    window.appendChild(contentDiv);
 
     // 延迟一帧后检查是否超出视口并调整位置
     requestAnimationFrame(() => {
@@ -219,7 +229,17 @@
 
     const errorDiv = document.createElement('div');
     errorDiv.className = 'translator-error';
-    errorDiv.textContent = error; // 使用 textContent 防止 XSS
+
+    const errorIcon = document.createElement('div');
+    errorIcon.className = 'error-icon';
+    errorIcon.textContent = '⚠️';
+    errorDiv.appendChild(errorIcon);
+
+    const errorText = document.createElement('div');
+    errorText.className = 'error-text';
+    errorText.textContent = error; // 使用 textContent 防止 XSS
+    errorDiv.appendChild(errorText);
+
     window.appendChild(errorDiv);
   }
 

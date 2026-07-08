@@ -56,6 +56,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
+    // 注意：URL补全逻辑已移至api.js中统一处理
+
     if (!config.apiKey) {
       showStatus('error', '请输入API Key');
       return;
@@ -123,10 +125,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const modelType = modelTypeSelect.value;
 
     if (modelType === 'openai') {
-      apiEndpointInput.placeholder = 'https://api.openai.com/v1/chat/completions';
+      apiEndpointInput.placeholder = 'https://api.openai.com/v1';
       modelInput.placeholder = 'gpt-3.5-turbo';
     } else if (modelType === 'anthropic') {
-      apiEndpointInput.placeholder = 'https://api.anthropic.com/v1/messages';
+      apiEndpointInput.placeholder = 'https://api.anthropic.com/v1';
       modelInput.placeholder = 'claude-3-haiku-20240307';
     }
   }
